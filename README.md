@@ -69,4 +69,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 [Specify your license here]
 
-![Project Architecture](architecture.png) 
+Project Architecture
+https://drive.google.com/file/d/1Nt004eQqP3gmGcN3FOwMfA96K-KHuJ-v/view?usp=drive_link

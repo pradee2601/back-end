@@ -16,18 +16,40 @@ The Autonomous BMC Generator is an AI-powered system that autonomously extracts,
 - Python 3.9+
 - See `requirements.txt` for all dependencies.
 - An OpenAI API key (for LLM usage)
+- A Gemini API key (for Google Gemini model usage)
+- A Trivily API key (for Trivily service integration)
 
 ## Setup
 1. **Clone the repository**
-2. **Install dependencies**:
+2. **(Recommended) Create and activate a virtual environment**:
+   ```bash
+   python -m venv venv
+   # On Windows:
+   venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
+   ```
+3. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
-3. **Set your OpenAI API key**:
+4. **Set your OpenAI API key**:
    ```bash
    export OPENAI_API_KEY=your-openai-api-key
    # On Windows (cmd):
    set OPENAI_API_KEY=your-openai-api-key
+   ```
+5. **Set your Gemini API key**:
+   ```bash
+   export GEMINI_API_KEY=your-gemini-api-key
+   # On Windows (cmd):
+   set GEMINI_API_KEY=your-gemini-api-key
+   ```
+6. **Set your Trivily API key**:
+   ```bash
+   export TRIVILY_API_KEY=your-trivily-api-key
+   # On Windows (cmd):
+   set TRIVILY_API_KEY=your-trivily-api-key
    ```
 
 ## Usage
@@ -59,10 +81,14 @@ curl -X POST "http://127.0.0.1:8000/generate-bmc" -H "Content-Type: application/
 ```
 
 ## Environment Variables
-- `OPENAI_API_KEY`: Your OpenAI API key (required)
+The following environment variables are required:
+- `OPENAI_API_KEY`: Your OpenAI API key (required for LLM features)
+- `GEMINI_API_KEY`: Your Gemini API key (required for Google Gemini model features)
+- `TRIVILY_API_KEY`: Your Trivily API key (required for Trivily service integration)
 
 ## Project Structure
-- `python/main_agentic_flow.py`: Main workflow and API implementation
+- `main_agentic_flow.py`: Main workflow and API implementation (FastAPI app, CLI entry point)
+- `flask_bmc_api.py`: (Legacy/alternative) Flask-based API implementation (if present)
 - `requirements.txt`: Python dependencies
 - `README.md`: Project documentation
 
